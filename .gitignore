@@ -1,0 +1,14 @@
+# Ignore arquivos de sistema
+.DS_Store
+Thumbs.db
+
+# Ignore arquivos de editor de código
+.vscode/
+.idea/
+*.swp
+
+# Ignore dependências (se estiver usando Node.js)
+node_modules/
+
+# Ignore arquivos de configuração sensíveis
+.env
