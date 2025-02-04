@@ -43,6 +43,6 @@ Se quiser algo mais detalhado ou em outro formato, me avise! 😊
 🔧 **Como Executar**:  
 1. Clone o repositório:  
    ```bash  
-   git clone https://github.com/seu-usuario/nome-do-repositorio.git  
+   git clone https://github.com/seu-usuario/https://github.com/Cesar-AMS/To-do-list-app
 
    
