@@ -1,15 +1,44 @@
 # To do list
 
-📌 **Descrição**: Uma breve explicação do seu projeto.  
+### 📌 **Documentação do Projeto - To-Do List**  
 
-🚀 **Funcionalidades**:  
-- Funcionalidade 1  
-- Funcionalidade 2  
+#### 📖 **Descrição**  
+Uma aplicação para gerenciamento de tarefas, permitindo que usuários adicionem, editem, concluam e removam tarefas.  
 
-🛠️ **Tecnologias**:  
-- HTML  
-- CSS  
-- JavaScript  
+#### 🎯 **Objetivo**  
+Criar um To-Do List interativo e funcional para o portfólio, aplicando boas práticas de desenvolvimento.  
+
+#### 🛠 **Funcionalidades**  
+- ✅ Adicionar tarefas  
+- ✏️ Editar tarefas  
+- ❌ Remover tarefas  
+- ☑️ Marcar tarefas como concluídas  
+- 📌 Filtrar e organizar por status (pendente/concluído)  
+
+#### 📂 **Tecnologias Utilizadas**  
+- **Frontend:** HTML, CSS, JavaScript (ou React)  
+- **Backend:** Node.js com Express (opcional)  
+- **Banco de Dados:** SQLite, MongoDB ou LocalStorage
+
+#### 🏗 **Estrutura do Projeto**  
+```
+/to-do-list
+│── /public
+│   ├── index.html
+│   ├── styles.css
+│   ├── script.js
+│── /src (caso use backend)
+│── /docs (documentação)
+│── README.md
+│── package.json (se usar Node.js)
+```
+
+#### 🚀 **Possíveis Melhorias Futuras**  
+- 📆 Definir prazos para tarefas  
+- 🔔 Notificações de lembrete  
+- 📱 Design responsivo para mobile  
+
+Se quiser algo mais detalhado ou em outro formato, me avise! 😊
 
 🔧 **Como Executar**:  
 1. Clone o repositório:  
