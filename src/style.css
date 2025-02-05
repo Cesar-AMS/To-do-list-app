@@ -1,83 +1,94 @@
+/* Definição do estilo global do corpo da página */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    font-family: Arial, sans-serif; /* Fonte padrão para melhor legibilidade */
+    background-color: #f4f4f4; /* Cor de fundo caso a imagem não carregue */
+    margin: 0; /* Remove margens padrão do navegador */
+    padding: 0; /* Remove qualquer espaçamento interno */
+    display: flex; /* Usa flexbox para centralizar o conteúdo */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    height: 100vh; /* Faz com que o body ocupe 100% da altura da tela */
 }
 
+/* Container principal da aplicação */
 .container {
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    text-align: center;
+    background: #fff; /* Fundo branco para destacar o conteúdo */
+    padding: 20px; /* Espaçamento interno para evitar que o conteúdo fique colado nas bordas */
+    border-radius: 8px; /* Bordas arredondadas para um design mais suave */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra sutil para dar um efeito de elevação */
+    width: 300px; /* Define uma largura fixa para o container */
+    text-align: center; /* Centraliza o texto dentro do container */
 }
 
+/* Estilo do título */
 h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
+    font-size: 24px; /* Tamanho da fonte */
+    margin-bottom: 20px; /* Adiciona espaço abaixo do título */
 }
 
+/* Estilização do input de tarefas */
 #taskInput {
-    width: calc(100% - 22px);
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    width: calc(100% - 22px); /* Ocupa quase toda a largura do container */
+    padding: 10px; /* Adiciona espaçamento interno para melhor usabilidade */
+    margin-bottom: 10px; /* Espaço abaixo do input */
+    border: 1px solid #ccc; /* Borda discreta para separar o input do fundo */
+    border-radius: 4px; /* Bordas arredondadas para suavizar o design */
 }
 
+/* Estilo do botão de adicionar tarefa */
 #addTaskBtn {
-    padding: 10px 20px;
-    background-color: #28a745;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+    padding: 10px 20px; /* Ajusta o tamanho do botão */
+    background-color: #28a745; /* Cor verde para indicar ação positiva */
+    color: #fff; /* Texto branco para contraste */
+    border: none; /* Remove a borda padrão */
+    border-radius: 4px; /* Bordas arredondadas */
+    cursor: pointer; /* Muda o cursor para indicar que o botão é clicável */
 }
 
+/* Efeito ao passar o mouse sobre o botão */
 #addTaskBtn:hover {
-    background-color: #218838;
+    background-color: #218838; /* Cor mais escura para indicar interação */
 }
 
+/* Lista de tarefas */
 #taskList {
-    list-style: none;
-    padding: 0;
-    margin-top: 20px;
+    list-style: none; /* Remove os marcadores padrão da lista */
+    padding: 0; /* Remove padding padrão */
+    margin-top: 20px; /* Adiciona um espaço entre o botão e a lista */
 }
 
+/* Estilo dos itens da lista */
 .task-item {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-bottom: 10px;
-    background-color: #f9f9f9;
+    display: flex; /* Usa flexbox para alinhar elementos internos */
+    justify-content: space-between; /* Separa o nome da tarefa do botão de deletar */
+    padding: 10px; /* Espaçamento interno */
+    border: 1px solid #ccc; /* Borda para separar os itens */
+    border-radius: 4px; /* Bordas arredondadas */
+    margin-bottom: 10px; /* Espaço entre os itens */
+    background-color: #f9f9f9; /* Fundo levemente cinza para diferenciar da página */
 }
 
+/* Estilização do botão de deletar tarefa */
 .delete-btn {
-    background-color: #dc3545;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+    background-color: #dc3545; /* Cor vermelha para indicar ação de remoção */
+    color: #fff; /* Texto branco para contraste */
+    border: none; /* Remove borda padrão */
+    border-radius: 4px; /* Bordas arredondadas */
+    cursor: pointer; /* Indica que o botão é clicável */
 }
 
+/* Efeito ao passar o mouse sobre o botão de deletar */
 .delete-btn:hover {
-    background-color: #c82333;
+    background-color: #c82333; /* Cor mais escura para indicar interação */
 }
 
+/* Adicionando uma imagem de fundo para toda a página */
 body {
-    background-image: url('img/fundoImage.jpeg'); /* Caminho da imagem */
-    background-size: cover;  /* Faz a imagem cobrir toda a tela */
+    background-image: url('img/fundoImage.jpeg'); /* Define a imagem como fundo */
+    background-size: cover; /* Faz a imagem cobrir toda a tela */
     background-position: center; /* Centraliza a imagem */
-    background-repeat: no-repeat; /* Evita repetições */
-    height: 100vh; /* Garante que ocupe toda a altura da tela */
-    margin: 0; /* Remove margens padrão */
-    padding: 0;
+    background-repeat: no-repeat; /* Evita a repetição da imagem */
+    height: 100vh; /* Mantém a altura da tela cheia */
+    margin: 0; /* Garante que não tenha margens brancas ao redor da tela */
+    padding: 0; /* Remove qualquer espaçamento interno */
 }
