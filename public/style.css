@@ -236,3 +236,8 @@ h1 {
     background-position: center;
     background-repeat: no-repeat;
 }
+
+/* Suaviza a transição ao alternar o Dark Mode */
+body {
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
