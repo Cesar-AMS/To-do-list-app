@@ -28,7 +28,6 @@ Criar um To-Do List interativo e funcional para o portfólio, aplicando boas pr�
 │   ├── styles.css
 │   ├── script.js
 │── /src (backend)
-│── /docs (documentação)
 │── README.md
 │── package.json (Node.js)
 ```
