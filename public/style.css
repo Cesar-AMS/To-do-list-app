@@ -222,3 +222,17 @@ h1 {
 .dark-mode .delete-btn:hover {
     background-color: #cc0000;
 }
+
+/* Estilo do modo escuro */
+.dark-mode {
+    background-color: #121212;
+    color: white;
+}
+
+/* Alterando o fundo no modo escuro */
+.dark-mode {
+    background-image: url('../img/imgFundoDark.jpeg'); /* Adicione uma imagem escura */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
