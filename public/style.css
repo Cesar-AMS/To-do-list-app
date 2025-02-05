@@ -1,6 +1,6 @@
 /* Estilo do corpo da página */
 body {
-    background-image: url('../img/imgFundo.jpeg'); /* Define a imagem de fundo, utilizando o caminho correto para a imagem */
+    background-image: url('../img/imgFundo.jpg'); /* Define a imagem de fundo, utilizando o caminho correto para a imagem */
     background-size: cover; /* Faz a imagem cobrir toda a tela, sem distorções */
     background-position: center; /* Centraliza a imagem no centro da tela */
     background-repeat: no-repeat; /* Impede que a imagem de fundo se repita */
