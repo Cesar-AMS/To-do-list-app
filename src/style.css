@@ -1,94 +1,85 @@
-/* Definição do estilo global do corpo da página */
+/* Estilo do corpo da página */
 body {
-    font-family: Arial, sans-serif; /* Fonte padrão para melhor legibilidade */
-    background-color: #f4f4f4; /* Cor de fundo caso a imagem não carregue */
-    margin: 0; /* Remove margens padrão do navegador */
-    padding: 0; /* Remove qualquer espaçamento interno */
-    display: flex; /* Usa flexbox para centralizar o conteúdo */
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: center; /* Centraliza verticalmente */
-    height: 100vh; /* Faz com que o body ocupe 100% da altura da tela */
+    background-image: url('../img/imgFundo.jpeg'); /* Define a imagem de fundo, utilizando o caminho correto para a imagem */
+    background-size: cover; /* Faz a imagem cobrir toda a tela, sem distorções */
+    background-position: center; /* Centraliza a imagem no centro da tela */
+    background-repeat: no-repeat; /* Impede que a imagem de fundo se repita */
+    height: 100vh; /* Faz com que o fundo ocupe toda a altura da tela */
+    margin: 0; /* Remove a margem padrão do navegador */
+    padding: 0; /* Remove o padding padrão do navegador */
+    display: flex; /* Usando flexbox para facilitar o posicionamento centralizado */
+    justify-content: center; /* Alinha o conteúdo ao centro horizontalmente */
+    align-items: center; /* Alinha o conteúdo ao centro verticalmente */
 }
 
-/* Container principal da aplicação */
+/* Estilo da caixa de conteúdo */
 .container {
-    background: #fff; /* Fundo branco para destacar o conteúdo */
-    padding: 20px; /* Espaçamento interno para evitar que o conteúdo fique colado nas bordas */
-    border-radius: 8px; /* Bordas arredondadas para um design mais suave */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra sutil para dar um efeito de elevação */
-    width: 300px; /* Define uma largura fixa para o container */
-    text-align: center; /* Centraliza o texto dentro do container */
+    background: rgba(255, 255, 255, 0.8); /* Define um fundo branco com transparência, para garantir legibilidade do conteúdo */
+    padding: 20px; /* Adiciona espaço interno ao redor do conteúdo da .container */
+    border-radius: 8px; /* Arredonda os cantos da caixa */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Aplica uma sombra suave para destacar a caixa */
+    width: 300px; /* Define a largura da .container */
+    text-align: center; /* Centraliza o texto dentro da .container */
 }
 
 /* Estilo do título */
 h1 {
-    font-size: 24px; /* Tamanho da fonte */
-    margin-bottom: 20px; /* Adiciona espaço abaixo do título */
+    font-size: 24px; /* Define o tamanho da fonte do título */
+    margin-bottom: 20px; /* Adiciona um espaçamento abaixo do título */
 }
 
-/* Estilização do input de tarefas */
+/* Estilo do campo de entrada de tarefa */
 #taskInput {
-    width: calc(100% - 22px); /* Ocupa quase toda a largura do container */
-    padding: 10px; /* Adiciona espaçamento interno para melhor usabilidade */
-    margin-bottom: 10px; /* Espaço abaixo do input */
-    border: 1px solid #ccc; /* Borda discreta para separar o input do fundo */
-    border-radius: 4px; /* Bordas arredondadas para suavizar o design */
+    width: calc(100% - 22px); /* Define a largura do campo de entrada para ocupar todo o espaço disponível, com 22px de ajuste para o padding */
+    padding: 10px; /* Adiciona um espaçamento interno no campo de entrada */
+    margin-bottom: 10px; /* Adiciona um espaçamento abaixo do campo de entrada */
+    border: 1px solid #ccc; /* Define a borda do campo com cor cinza clara */
+    border-radius: 4px; /* Arredonda os cantos da borda */
 }
 
 /* Estilo do botão de adicionar tarefa */
 #addTaskBtn {
-    padding: 10px 20px; /* Ajusta o tamanho do botão */
-    background-color: #28a745; /* Cor verde para indicar ação positiva */
-    color: #fff; /* Texto branco para contraste */
-    border: none; /* Remove a borda padrão */
-    border-radius: 4px; /* Bordas arredondadas */
-    cursor: pointer; /* Muda o cursor para indicar que o botão é clicável */
+    padding: 10px 20px; /* Define o espaçamento interno do botão */
+    background-color: #28a745; /* Define a cor de fundo do botão (verde) */
+    color: #fff; /* Define a cor do texto do botão (branco) */
+    border: none; /* Remove a borda padrão do botão */
+    border-radius: 4px; /* Arredonda os cantos do botão */
+    cursor: pointer; /* Altera o cursor para indicar que o botão é clicável */
 }
 
-/* Efeito ao passar o mouse sobre o botão */
+/* Estilo do botão de adicionar tarefa quando o usuário passa o mouse sobre ele */
 #addTaskBtn:hover {
-    background-color: #218838; /* Cor mais escura para indicar interação */
+    background-color: #218838; /* Altera a cor de fundo do botão para um tom mais escuro de verde ao passar o mouse */
 }
 
-/* Lista de tarefas */
+/* Estilo da lista de tarefas */
 #taskList {
-    list-style: none; /* Remove os marcadores padrão da lista */
-    padding: 0; /* Remove padding padrão */
-    margin-top: 20px; /* Adiciona um espaço entre o botão e a lista */
+    list-style: none; /* Remove os pontos das listas */
+    padding: 0; /* Remove o padding padrão das listas */
+    margin-top: 20px; /* Adiciona um espaçamento acima da lista */
 }
 
-/* Estilo dos itens da lista */
+/* Estilo de cada item de tarefa */
 .task-item {
-    display: flex; /* Usa flexbox para alinhar elementos internos */
-    justify-content: space-between; /* Separa o nome da tarefa do botão de deletar */
-    padding: 10px; /* Espaçamento interno */
-    border: 1px solid #ccc; /* Borda para separar os itens */
-    border-radius: 4px; /* Bordas arredondadas */
-    margin-bottom: 10px; /* Espaço entre os itens */
-    background-color: #f9f9f9; /* Fundo levemente cinza para diferenciar da página */
+    display: flex; /* Usando flexbox para alinhar o conteúdo das tarefas */
+    justify-content: space-between; /* Cria um espaço entre os elementos (ex: tarefa e botão de deletar) */
+    padding: 10px; /* Adiciona um espaçamento interno nas tarefas */
+    border: 1px solid #ccc; /* Define uma borda cinza clara ao redor de cada tarefa */
+    border-radius: 4px; /* Arredonda os cantos das bordas */
+    margin-bottom: 10px; /* Adiciona um espaçamento abaixo de cada item de tarefa */
+    background-color: #f9f9f9; /* Define um fundo claro para cada item de tarefa */
 }
 
-/* Estilização do botão de deletar tarefa */
+/* Estilo do botão de deletar tarefa */
 .delete-btn {
-    background-color: #dc3545; /* Cor vermelha para indicar ação de remoção */
-    color: #fff; /* Texto branco para contraste */
-    border: none; /* Remove borda padrão */
-    border-radius: 4px; /* Bordas arredondadas */
-    cursor: pointer; /* Indica que o botão é clicável */
+    background-color: #dc3545; /* Define a cor de fundo do botão de deletar (vermelho) */
+    color: #fff; /* Define a cor do texto (branco) */
+    border: none; /* Remove a borda padrão do botão */
+    border-radius: 4px; /* Arredonda os cantos do botão */
+    cursor: pointer; /* Altera o cursor para indicar que o botão é clicável */
 }
 
-/* Efeito ao passar o mouse sobre o botão de deletar */
+/* Estilo do botão de deletar tarefa quando o usuário passa o mouse sobre ele */
 .delete-btn:hover {
-    background-color: #c82333; /* Cor mais escura para indicar interação */
-}
-
-/* Adicionando uma imagem de fundo para toda a página */
-body {
-    background-image: url('img/fundoImage.jpeg'); /* Define a imagem como fundo */
-    background-size: cover; /* Faz a imagem cobrir toda a tela */
-    background-position: center; /* Centraliza a imagem */
-    background-repeat: no-repeat; /* Evita a repetição da imagem */
-    height: 100vh; /* Mantém a altura da tela cheia */
-    margin: 0; /* Garante que não tenha margens brancas ao redor da tela */
-    padding: 0; /* Remove qualquer espaçamento interno */
+    background-color: #c82333; /* Altera a cor de fundo do botão para um tom mais escuro de vermelho ao passar o mouse */
 }
