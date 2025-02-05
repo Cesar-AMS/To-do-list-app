@@ -132,3 +132,93 @@ h1 {
         transform: translateY(-10px);
     }
 }
+
+/* Ajustes gerais para responsividade */
+@media (max-width: 600px) {
+    .container {
+        width: 90%; /* Ajusta a largura para telas menores */
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 20px; /* Reduz tamanho do título */
+    }
+
+    #taskInput {
+        font-size: 16px; /* Aumenta o tamanho do texto para facilitar a digitação */
+        padding: 12px; /* Torna mais confortável */
+    }
+
+    #addTaskBtn {
+        width: 100%; /* Botão ocupa toda a largura */
+        font-size: 16px;
+        padding: 12px;
+    }
+
+    .task-item {
+        font-size: 14px; /* Ajusta o tamanho das tarefas */
+        padding: 8px;
+    }
+
+    .delete-btn {
+        font-size: 14px; /* Botão de exclusão maior */
+        padding: 5px;
+    }
+}
+
+/* Ajustes para tablets */
+@media (max-width: 900px) {
+    .container {
+        width: 80%;
+    }
+}
+
+/* Estilo do botão de Dark Mode */
+#toggleDarkMode {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    cursor: pointer;
+    background-color: #333;
+    color: white;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+#toggleDarkMode:hover {
+    background-color: #555;
+}
+
+/* Estilo do modo escuro */
+.dark-mode {
+    background-color: #121212;
+    color: white;
+}
+
+.dark-mode .container {
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.dark-mode #taskInput,
+.dark-mode .task-item {
+    background-color: #333;
+    color: white;
+    border: 1px solid #555;
+}
+
+.dark-mode #addTaskBtn {
+    background-color: #007bff;
+}
+
+.dark-mode #addTaskBtn:hover {
+    background-color: #0056b3;
+}
+
+.dark-mode .delete-btn {
+    background-color: #ff4d4d;
+}
+
+.dark-mode .delete-btn:hover {
+    background-color: #cc0000;
+}
