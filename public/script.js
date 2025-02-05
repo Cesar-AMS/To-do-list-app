@@ -67,13 +67,14 @@ addTaskBtn.addEventListener("click", addTask);
 // Renderizar tarefas ao carregar a página
 renderTasks();
 
+
 // Selecionando o botão de Dark Mode
 const toggleDarkMode = document.getElementById("toggleDarkMode");
 
 // Função para alternar Dark Mode
 function toggleMode() {
     document.body.classList.toggle("dark-mode");
-    
+
     // Salva a preferência do usuário no LocalStorage
     if (document.body.classList.contains("dark-mode")) {
         localStorage.setItem("darkMode", "enabled");
