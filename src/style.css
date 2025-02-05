@@ -71,3 +71,13 @@ h1 {
 .delete-btn:hover {
     background-color: #c82333;
 }
+
+body {
+    background-image: url('img/fundoImage.jpeg'); /* Caminho da imagem */
+    background-size: cover;  /* Faz a imagem cobrir toda a tela */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Evita repetições */
+    height: 100vh; /* Garante que ocupe toda a altura da tela */
+    margin: 0; /* Remove margens padrão */
+    padding: 0;
+}
