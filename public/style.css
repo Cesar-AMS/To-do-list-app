@@ -83,3 +83,52 @@ h1 {
 .delete-btn:hover {
     background-color: #c82333; /* Altera a cor de fundo do botão para um tom mais escuro de vermelho ao passar o mouse */
 }
+
+/* Estilo para tarefas concluídas */
+.completed {
+    text-decoration: line-through;
+    color: gray;
+}
+
+/* Efeito suave ao adicionar uma tarefa */
+.task-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+    opacity: 0; /* Começa invisível */
+    transform: translateY(-10px); /* Levemente deslocada para cima */
+    animation: fadeIn 0.3s ease-in-out forwards;
+}
+
+/* Efeito de remoção */
+.task-item.removing {
+    animation: fadeOut 0.3s ease-in-out forwards;
+}
+
+/* Marcar tarefa como concluída */
+.completed {
+    text-decoration: line-through;
+    color: gray;
+    transition: color 0.3s ease-in-out, text-decoration 0.3s ease-in-out;
+}
+
+/* Animação de entrada */
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animação de saída */
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+}

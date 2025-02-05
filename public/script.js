@@ -1,44 +1,68 @@
-// Selecionar elementos do DOM
-const taskInput = document.getElementById("taskInput"); // Campo de entrada de texto para tarefas
-const addTaskBtn = document.getElementById("addTaskBtn"); // Botão para adicionar nova tarefa
-const taskList = document.getElementById("taskList"); // Lista onde as tarefas serão exibidas
+// Selecionar elementos
+const taskInput = document.getElementById("taskInput");
+const addTaskBtn = document.getElementById("addTaskBtn");
+const taskList = document.getElementById("taskList");
 
-// Array para armazenar as tarefas
-let tasks = []; // Inicializa um array vazio para armazenar as tarefas
+// Recuperar tarefas do LocalStorage
+let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
-// Função para adicionar uma nova tarefa
+// Função para salvar no LocalStorage
+function saveTasks() {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+}
+
+// Função para adicionar tarefa
 function addTask() {
-    const taskText = taskInput.value.trim(); // Pega o texto digitado no campo de entrada e remove espaços extras
-    if (taskText !== "") { // Verifica se o campo não está vazio
-        // Adiciona a tarefa ao array com o status de "não concluída"
+    const taskText = taskInput.value.trim();
+    if (taskText !== "") {
         tasks.push({ text: taskText, completed: false });
-        taskInput.value = ""; // Limpa o campo de entrada após adicionar a tarefa
-        renderTasks(); // Chama a função para atualizar a lista de tarefas exibida
+        taskInput.value = "";
+        saveTasks();
+        renderTasks();
     }
 }
 
-// Função para renderizar as tarefas na lista
+// Função para renderizar tarefas
 function renderTasks() {
-    taskList.innerHTML = ""; // Limpa a lista de tarefas para evitar duplicações
-    tasks.forEach((task, index) => { // Itera sobre o array de tarefas
-        const taskItem = document.createElement("li"); // Cria um novo item de lista (<li>) para cada tarefa
-        taskItem.className = "task-item"; // Atribui uma classe CSS para o item
+    taskList.innerHTML = "";
+    tasks.forEach((task, index) => {
+        const taskItem = document.createElement("li");
+        taskItem.className = "task-item";
         taskItem.innerHTML = `
-            <span>${task.text}</span> <!-- Exibe o texto da tarefa -->
-            <button class="delete-btn" onclick="deleteTask(${index})">✕</button> <!-- Botão para deletar a tarefa -->
+            <input type="checkbox" onchange="toggleTask(${index})" ${task.completed ? "checked" : ""}>
+            <span class="${task.completed ? "completed" : ""}">${task.text}</span>
+            <button class="delete-btn" onclick="deleteTask(${index})">✕</button>
         `;
-        taskList.appendChild(taskItem); // Adiciona o item à lista de tarefas no HTML
+        taskList.appendChild(taskItem);
     });
 }
 
-// Função para deletar uma tarefa
-function deleteTask(index) {
-    tasks.splice(index, 1); // Remove a tarefa do array de acordo com o índice
-    renderTasks(); // Atualiza a lista de tarefas após a remoção
+// Função para alternar status da tarefa (concluído/não concluído)
+function toggleTask(index) {
+    tasks[index].completed = !tasks[index].completed;
+    saveTasks();
+    renderTasks();
 }
 
-// Evento que dispara a função addTask quando o botão de adicionar é clicado
+// Função para deletar tarefa com animação
+function deleteTask(index) {
+    const taskItems = document.querySelectorAll(".task-item");
+    const taskToRemove = taskItems[index];
+
+    if (taskToRemove) {
+        taskToRemove.classList.add("removing");
+
+        // Espera a animação terminar antes de remover
+        setTimeout(() => {
+            tasks.splice(index, 1);
+            saveTasks();
+            renderTasks();
+        }, 300);
+    }
+}
+
+// Evento para adicionar tarefa
 addTaskBtn.addEventListener("click", addTask);
 
-// Renderiza as tarefas quando a página é carregada
+// Renderizar tarefas ao carregar a página
 renderTasks();
