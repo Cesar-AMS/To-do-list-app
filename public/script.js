@@ -29,15 +29,15 @@ function renderTasks() {
     taskList.innerHTML = "";
     tasks.forEach((task, index) => {
         const taskItem = document.createElement("li");
-        taskItem.className = "task-item";
+        taskItem.className = `task-item ${task.priority}`;
         taskItem.innerHTML = `
-            <input type="checkbox" onchange="toggleTask(${index})" ${task.completed ? "checked" : ""}>
-            <span class="${task.completed ? "completed" : ""}">${task.text}</span>
+            <span>${task.text}</span>
             <button class="delete-btn" onclick="deleteTask(${index})">✕</button>
         `;
         taskList.appendChild(taskItem);
     });
 }
+
 
 // Função para alternar status da tarefa (concluído/não concluído)
 function toggleTask(index) {
