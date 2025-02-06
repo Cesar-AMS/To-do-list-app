@@ -92,3 +92,20 @@ toggleDarkMode.addEventListener("click", toggleMode);
 if (localStorage.getItem("darkMode") === "enabled") {
     document.body.classList.add("dark-mode");
 }
+
+// Salvar no Local Storage
+function saveTasksToLocalStorage() {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+}
+
+// Carregar do Local Storage
+function loadTasksFromLocalStorage() {
+    const savedTasks = localStorage.getItem("tasks");
+    if (savedTasks) {
+        tasks = JSON.parse(savedTasks);
+        renderTasks();
+    }
+}
+
+// Chamar ao carregar a página
+loadTasksFromLocalStorage();
