@@ -2,37 +2,27 @@
 <html lang="pt-BR">
 
 <head>
-    <!-- Define a codificação de caracteres para UTF-8 -->
     <meta charset="UTF-8">
-    <!-- Define o viewport para garantir que a página seja exibida corretamente em dispositivos móveis -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Define o título da página que será exibido na aba do navegador -->
     <title>To-Do List app</title>
-    <!-- Link para o arquivo de estilos CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <!-- Caixa de conteúdo principal -->
     <div class="container">
-        <!-- Título da página -->
         <h1>To-Do List app</h1>
         <button id="toggleDarkMode">🌙 Alternar Modo</button>
-        <!-- Campo de entrada de texto para o usuário adicionar uma nova tarefa -->
         <input type="text" id="taskInput" placeholder="Adicione uma tarefa...">
         <select id="prioritySelect">
             <option value="low">Baixa</option>
             <option value="medium">Média</option>
             <option value="high">Alta</option>
         </select>
-
-        <!-- Botão para adicionar a tarefa -->
         <button id="addTaskBtn">Adicionar</button>
-        <!-- Lista de tarefas -->
         <ul id="taskList"></ul>
     </div>
 
-    <!-- Importação do arquivo JavaScript para funcionalidade dinâmica -->
     <script src="script.js"></script>
 </body>
+
 </html>

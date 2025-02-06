@@ -2,110 +2,91 @@
 const taskInput = document.getElementById("taskInput");
 const addTaskBtn = document.getElementById("addTaskBtn");
 const taskList = document.getElementById("taskList");
-
-// Recuperar tarefas do LocalStorage
+const toggleDarkMode = document.getElementById("toggleDarkMode");
 let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
-// Função para salvar no LocalStorage
-function saveTasks() {
-    localStorage.setItem("tasks", JSON.stringify(tasks));
-}
+// Salvar e carregar do LocalStorage
+const saveTasks = () => localStorage.setItem("tasks", JSON.stringify(tasks));
+const loadTasks = () => {
+    tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+    renderTasks();
+};
 
-// Função para adicionar tarefa
-function addTask() {
+// Adicionar tarefa
+const addTask = () => {
     const taskText = taskInput.value.trim();
-    const taskPriority = document.getElementById("prioritySelect").value; // Captura a prioridade
+    if (!taskText) return;
+    tasks.push({ text: taskText, completed: false });
+    taskInput.value = "";
+    saveTasks();
+    renderTasks();
+};
 
-    if (taskText !== "") {
-        tasks.push({ text: taskText, priority: taskPriority });
-        taskInput.value = "";
-        renderTasks();
-        saveTasksToLocalStorage(); // Salva as tarefas
-    }
-}
-
-// Função para renderizar tarefas
-function renderTasks() {
+// Renderizar tarefas
+const renderTasks = () => {
     taskList.innerHTML = "";
     tasks.forEach((task, index) => {
         const taskItem = document.createElement("li");
-        taskItem.className = `task-item ${task.priority}`;
-        taskItem.innerHTML = `
-            <span>${task.text}</span>
-            <button class="delete-btn" onclick="deleteTask(${index})">✕</button>
-        `;
+        taskItem.className = "task-item";
+        
+        const taskText = document.createElement("span");
+        taskText.textContent = task.text;
+        taskText.onclick = () => toggleTask(index);
+        
+        const inputEdit = document.createElement("input");
+        inputEdit.type = "text";
+        inputEdit.value = task.text;
+        inputEdit.className = "edit-input hidden";
+        
+        const editBtn = document.createElement("button");
+        editBtn.textContent = "✎";
+        editBtn.onclick = () => editTask(index, taskText, inputEdit, editBtn);
+        
+        const deleteBtn = document.createElement("button");
+        deleteBtn.textContent = "✕";
+        deleteBtn.onclick = () => deleteTask(index);
+        
+        taskItem.append(taskText, inputEdit, editBtn, deleteBtn);
         taskList.appendChild(taskItem);
     });
-}
+};
 
+// Editar tarefa
+const editTask = (index, taskText, inputEdit, editBtn) => {
+    const editing = inputEdit.classList.toggle("hidden");
+    taskText.style.display = editing ? "none" : "inline";
+    editBtn.textContent = editing ? "💾" : "✎";
+    if (!editing) {
+        tasks[index].text = inputEdit.value;
+        taskText.textContent = inputEdit.value;
+        saveTasks();
+    }
+};
 
-// Função para alternar status da tarefa (concluído/não concluído)
-function toggleTask(index) {
+// Alternar status da tarefa
+const toggleTask = (index) => {
     tasks[index].completed = !tasks[index].completed;
     saveTasks();
     renderTasks();
-}
+};
 
-// Função para deletar tarefa com animação
-function deleteTask(index) {
-    const taskItems = document.querySelectorAll(".task-item");
-    const taskToRemove = taskItems[index];
-
-    if (taskToRemove) {
-        taskToRemove.classList.add("removing");
-
-        // Espera a animação terminar antes de remover
-        setTimeout(() => {
-            tasks.splice(index, 1);
-            saveTasks();
-            renderTasks();
-        }, 300);
-    }
-}
-
-// Evento para adicionar tarefa
-addTaskBtn.addEventListener("click", addTask);
-
-// Renderizar tarefas ao carregar a página
-renderTasks();
-
-
-// Selecionando o botão de Dark Mode
-const toggleDarkMode = document.getElementById("toggleDarkMode");
-
-// Função para alternar Dark Mode
-function toggleMode() {
-    document.body.classList.toggle("dark-mode");
-
-    // Salva a preferência do usuário no LocalStorage
-    if (document.body.classList.contains("dark-mode")) {
-        localStorage.setItem("darkMode", "enabled");
-    } else {
-        localStorage.setItem("darkMode", "disabled");
-    }
-}
-
-// Evento de clique para alternar o modo
-toggleDarkMode.addEventListener("click", toggleMode);
-
-// Verifica a preferência salva e aplica o Dark Mode se necessário
-if (localStorage.getItem("darkMode") === "enabled") {
-    document.body.classList.add("dark-mode");
-}
-
-// Salvar no Local Storage
-function saveTasksToLocalStorage() {
-    localStorage.setItem("tasks", JSON.stringify(tasks));
-}
-
-// Carregar do Local Storage
-function loadTasksFromLocalStorage() {
-    const savedTasks = localStorage.getItem("tasks");
-    if (savedTasks) {
-        tasks = JSON.parse(savedTasks);
+// Deletar tarefa com animação
+const deleteTask = (index) => {
+    document.querySelectorAll(".task-item")[index].classList.add("removing");
+    setTimeout(() => {
+        tasks.splice(index, 1);
+        saveTasks();
         renderTasks();
-    }
-}
+    }, 500);
+};
 
-// Chamar ao carregar a página
-loadTasksFromLocalStorage();
+// Alternar Dark Mode
+toggleDarkMode.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+    localStorage.setItem("darkMode", document.body.classList.contains("dark-mode") ? "enabled" : "disabled");
+});
+if (localStorage.getItem("darkMode") === "enabled") document.body.classList.add("dark-mode");
+
+// Eventos
+document.addEventListener("DOMContentLoaded", loadTasks);
+addTaskBtn.addEventListener("click", addTask);
