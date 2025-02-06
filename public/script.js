@@ -14,11 +14,13 @@ function saveTasks() {
 // Função para adicionar tarefa
 function addTask() {
     const taskText = taskInput.value.trim();
+    const taskPriority = document.getElementById("prioritySelect").value; // Captura a prioridade
+
     if (taskText !== "") {
-        tasks.push({ text: taskText, completed: false });
+        tasks.push({ text: taskText, priority: taskPriority });
         taskInput.value = "";
-        saveTasks();
         renderTasks();
+        saveTasksToLocalStorage(); // Salva as tarefas
     }
 }
 
