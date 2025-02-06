@@ -267,3 +267,18 @@ button:hover {
     transform: scale(1.05);
 }
 
+.low {
+    background-color: #d4edda; /* Verde claro */
+    border-left: 5px solid #28a745; /* Verde escuro */
+}
+
+.medium {
+    background-color: #fff3cd; /* Amarelo claro */
+    border-left: 5px solid #ffc107; /* Amarelo escuro */
+}
+
+.high {
+    background-color: #f8d7da; /* Vermelho claro */
+    border-left: 5px solid #dc3545; /* Vermelho escuro */
+}
+
