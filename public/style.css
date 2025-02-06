@@ -1,176 +1,26 @@
 /* Estilo do corpo da página */
 body {
-    background-image: url('../img/imgFundo.jpg'); /* Define a imagem de fundo, utilizando o caminho correto para a imagem */
-    background-size: cover; /* Faz a imagem cobrir toda a tela, sem distorções */
-    background-position: center; /* Centraliza a imagem no centro da tela */
-    background-repeat: no-repeat; /* Impede que a imagem de fundo se repita */
-    height: 100vh; /* Faz com que o fundo ocupe toda a altura da tela */
-    margin: 0; /* Remove a margem padrão do navegador */
-    padding: 0; /* Remove o padding padrão do navegador */
-    display: flex; /* Usando flexbox para facilitar o posicionamento centralizado */
-    justify-content: center; /* Alinha o conteúdo ao centro horizontalmente */
-    align-items: center; /* Alinha o conteúdo ao centro verticalmente */
+    background-image: url('../img/imgFundo.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 /* Estilo da caixa de conteúdo */
 .container {
-    background: rgba(255, 255, 255, 0.8); /* Define um fundo branco com transparência, para garantir legibilidade do conteúdo */
-    padding: 20px; /* Adiciona espaço interno ao redor do conteúdo da .container */
-    border-radius: 8px; /* Arredonda os cantos da caixa */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Aplica uma sombra suave para destacar a caixa */
-    width: 300px; /* Define a largura da .container */
-    text-align: center; /* Centraliza o texto dentro da .container */
-}
-
-/* Estilo do título */
-h1 {
-    font-size: 24px; /* Define o tamanho da fonte do título */
-    margin-bottom: 20px; /* Adiciona um espaçamento abaixo do título */
-}
-
-/* Estilo do campo de entrada de tarefa */
-#taskInput {
-    width: calc(100% - 22px); /* Define a largura do campo de entrada para ocupar todo o espaço disponível, com 22px de ajuste para o padding */
-    padding: 10px; /* Adiciona um espaçamento interno no campo de entrada */
-    margin-bottom: 10px; /* Adiciona um espaçamento abaixo do campo de entrada */
-    border: 1px solid #ccc; /* Define a borda do campo com cor cinza clara */
-    border-radius: 4px; /* Arredonda os cantos da borda */
-}
-
-/* Estilo do botão de adicionar tarefa */
-#addTaskBtn {
-    padding: 10px 20px; /* Define o espaçamento interno do botão */
-    background-color: #28a745; /* Define a cor de fundo do botão (verde) */
-    color: #fff; /* Define a cor do texto do botão (branco) */
-    border: none; /* Remove a borda padrão do botão */
-    border-radius: 4px; /* Arredonda os cantos do botão */
-    cursor: pointer; /* Altera o cursor para indicar que o botão é clicável */
-}
-
-/* Estilo do botão de adicionar tarefa quando o usuário passa o mouse sobre ele */
-#addTaskBtn:hover {
-    background-color: #218838; /* Altera a cor de fundo do botão para um tom mais escuro de verde ao passar o mouse */
-}
-
-/* Estilo da lista de tarefas */
-#taskList {
-    list-style: none; /* Remove os pontos das listas */
-    padding: 0; /* Remove o padding padrão das listas */
-    margin-top: 20px; /* Adiciona um espaçamento acima da lista */
-}
-
-/* Estilo de cada item de tarefa */
-.task-item {
-    display: flex; /* Usando flexbox para alinhar o conteúdo das tarefas */
-    justify-content: space-between; /* Cria um espaço entre os elementos (ex: tarefa e botão de deletar) */
-    padding: 10px; /* Adiciona um espaçamento interno nas tarefas */
-    border: 1px solid #ccc; /* Define uma borda cinza clara ao redor de cada tarefa */
-    border-radius: 4px; /* Arredonda os cantos das bordas */
-    margin-bottom: 10px; /* Adiciona um espaçamento abaixo de cada item de tarefa */
-    background-color: #f9f9f9; /* Define um fundo claro para cada item de tarefa */
-}
-
-/* Estilo do botão de deletar tarefa */
-.delete-btn {
-    background-color: #dc3545; /* Define a cor de fundo do botão de deletar (vermelho) */
-    color: #fff; /* Define a cor do texto (branco) */
-    border: none; /* Remove a borda padrão do botão */
-    border-radius: 4px; /* Arredonda os cantos do botão */
-    cursor: pointer; /* Altera o cursor para indicar que o botão é clicável */
-}
-
-/* Estilo do botão de deletar tarefa quando o usuário passa o mouse sobre ele */
-.delete-btn:hover {
-    background-color: #c82333; /* Altera a cor de fundo do botão para um tom mais escuro de vermelho ao passar o mouse */
-}
-
-/* Estilo para tarefas concluídas */
-.completed {
-    text-decoration: line-through;
-    color: gray;
-}
-
-/* Efeito suave ao adicionar uma tarefa */
-.task-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-bottom: 10px;
-    background-color: #f9f9f9;
-    opacity: 0; /* Começa invisível */
-    transform: translateY(-10px); /* Levemente deslocada para cima */
-    animation: fadeIn 0.3s ease-in-out forwards;
-}
-
-/* Efeito de remoção */
-.task-item.removing {
-    animation: fadeOut 0.3s ease-in-out forwards;
-}
-
-/* Marcar tarefa como concluída */
-.completed {
-    text-decoration: line-through;
-    color: gray;
-    transition: color 0.3s ease-in-out, text-decoration 0.3s ease-in-out;
-}
-
-/* Animação de entrada */
-@keyframes fadeIn {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Animação de saída */
-@keyframes fadeOut {
-    to {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-}
-
-/* Ajustes gerais para responsividade */
-@media (max-width: 600px) {
-    .container {
-        width: 90%; /* Ajusta a largura para telas menores */
-        padding: 15px;
-    }
-
-    h1 {
-        font-size: 20px; /* Reduz tamanho do título */
-    }
-
-    #taskInput {
-        font-size: 16px; /* Aumenta o tamanho do texto para facilitar a digitação */
-        padding: 12px; /* Torna mais confortável */
-    }
-
-    #addTaskBtn {
-        width: 100%; /* Botão ocupa toda a largura */
-        font-size: 16px;
-        padding: 12px;
-    }
-
-    .task-item {
-        font-size: 14px; /* Ajusta o tamanho das tarefas */
-        padding: 8px;
-    }
-
-    .delete-btn {
-        font-size: 14px; /* Botão de exclusão maior */
-        padding: 5px;
-    }
-}
-
-/* Ajustes para tablets */
-@media (max-width: 900px) {
-    .container {
-        width: 80%;
-    }
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
 }
 
 /* Estilo do botão de Dark Mode */
@@ -183,16 +33,22 @@ h1 {
     color: white;
     border-radius: 5px;
     font-size: 14px;
+    transition: transform 0.2s ease-in-out;
 }
 
 #toggleDarkMode:hover {
     background-color: #555;
+    transform: scale(1.05);
 }
 
 /* Estilo do modo escuro */
 .dark-mode {
     background-color: #121212;
     color: white;
+    background-image: url('../img/imgFundoDark.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .dark-mode .container {
@@ -223,62 +79,18 @@ h1 {
     background-color: #cc0000;
 }
 
-/* Estilo do modo escuro */
-.dark-mode {
-    background-color: #121212;
-    color: white;
-}
-
-/* Alterando o fundo no modo escuro */
-.dark-mode {
-    background-image: url('../img/imgFundoDark.jpeg'); /* Adicione uma imagem escura */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-/* Suaviza a transição ao alternar o Dark Mode */
-body {
-    transition: background-color 0.5s ease, color 0.5s ease;
-}
-
-/* Animação ao adicionar tarefa */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.task-item {
-    animation: fadeIn 0.3s ease-in-out;
-}
-
-/* Efeito hover nos botões */
-button {
-    transition: transform 0.2s ease-in-out;
-}
-
-button:hover {
-    transform: scale(1.05);
-}
-
+/* Estilo de prioridade */
 .low {
-    background-color: #d4edda; /* Verde claro */
-    border-left: 5px solid #28a745; /* Verde escuro */
+    background-color: #d4edda;
+    border-left: 5px solid #28a745;
 }
 
 .medium {
-    background-color: #fff3cd; /* Amarelo claro */
-    border-left: 5px solid #ffc107; /* Amarelo escuro */
+    background-color: #fff3cd;
+    border-left: 5px solid #ffc107;
 }
 
 .high {
-    background-color: #f8d7da; /* Vermelho claro */
-    border-left: 5px solid #dc3545; /* Vermelho escuro */
+    background-color: #f8d7da;
+    border-left: 5px solid #dc3545;
 }
-
